@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Tetris</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1 id="title">TETRIS</h1>
+
+    <div id="info-bar">
+      <div class="stat">
+        <span class="stat-label">SCORE</span>
+        <span class="stat-value" id="score">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">LEVEL</span>
+        <span class="stat-value" id="level">1</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">LINES</span>
+        <span class="stat-value" id="lines">0</span>
+      </div>
+    </div>
+
+    <div id="board-wrap">
+      <div id="board"></div>
+      <div id="overlay" class="hidden">
+        <p id="overlay-title"></p>
+        <p id="overlay-score" class="hidden"></p>
+        <button id="overlay-btn"></button>
+      </div>
+    </div>
+
+    <div id="controls">
+      <div id="controls-top">
+        <button class="ctrl-btn" id="btn-rotate">↻ ROTATE</button>
+      </div>
+      <div id="controls-mid">
+        <button class="ctrl-btn" id="btn-left">◀</button>
+        <button class="ctrl-btn" id="btn-down">▼</button>
+        <button class="ctrl-btn" id="btn-right">▶</button>
+      </div>
+      <div id="controls-bot">
+        <button class="ctrl-btn ctrl-secondary" id="btn-pause">⏸ PAUSE</button>
+        <button class="ctrl-btn ctrl-secondary" id="btn-restart">↩ RESTART</button>
+      </div>
+    </div>
+
+    <p id="keyboard-hint">↑/Z 旋转 &nbsp;·&nbsp; ← → 移动 &nbsp;·&nbsp; ↓ 加速 &nbsp;·&nbsp; P/Esc 暂停</p>
+  </div>
+  <script src="tetris.js"></script>
+</body>
+</html>

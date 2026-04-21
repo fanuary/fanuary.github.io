@@ -1,0 +1,202 @@
+/* ─── CSS Variables ─────────────────────────── */
+:root {
+  --base:     #1e1e2e;
+  --mantle:   #181825;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --overlay0: #6c7086;
+  --text:     #cdd6f4;
+  --mauve:    #cba6f7;
+  --green:    #a6e3a1;
+  --blue:     #89b4fa;
+  --cell:     min(4.5vmin, 30px);
+}
+
+/* ─── Reset & Base ──────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--base);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 16px 0 24px;
+  touch-action: none;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ─── Title ─────────────────────────────────── */
+#title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--text);
+}
+
+/* ─── Info Bar ──────────────────────────────── */
+#info-bar {
+  display: flex;
+  background: var(--mantle);
+  border: 1px solid var(--surface0);
+  border-radius: 12px;
+  padding: 10px 28px;
+  width: 100%;
+  max-width: 320px;
+  justify-content: space-around;
+}
+
+.stat { text-align: center; }
+
+.stat-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--overlay0);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+#score { color: var(--mauve); }
+#level { color: var(--green); }
+#lines { color: var(--blue);  }
+
+/* ─── Board ─────────────────────────────────── */
+#board-wrap { position: relative; }
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(10, var(--cell));
+  grid-template-rows:    repeat(20, var(--cell));
+  gap: 2px;
+  background: var(--mantle);
+  border: 2px solid var(--surface0);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.cell {
+  width:  var(--cell);
+  height: var(--cell);
+  border-radius: 4px;
+  background: var(--surface0);
+}
+
+.cell.filled {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* ─── Overlay ───────────────────────────────── */
+#overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 27, 0.88);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+#overlay.hidden { display: none; }
+
+#overlay-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text);
+  text-align: center;
+  white-space: pre-line;
+}
+
+#overlay-score {
+  font-size: 13px;
+  color: var(--overlay0);
+}
+
+#overlay-score.hidden { display: none; }
+
+#overlay-btn {
+  padding: 10px 28px;
+  background: var(--mauve);
+  color: var(--mantle);
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#overlay-btn:hover { opacity: 0.88; }
+
+/* ─── Mobile Controls ───────────────────────── */
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 260px;
+}
+
+#controls-top, #controls-mid, #controls-bot {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.ctrl-btn {
+  background: var(--surface0);
+  color: var(--text);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+#btn-rotate {
+  padding: 10px 36px;
+  background: var(--mauve);
+  color: var(--mantle);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#btn-left, #btn-down, #btn-right {
+  width: 56px;
+  height: 48px;
+}
+
+.ctrl-secondary {
+  padding: 8px 18px;
+  font-size: 12px;
+  background: var(--surface1);
+}
+
+/* ─── Keyboard Hint ─────────────────────────── */
+#keyboard-hint {
+  font-size: 11px;
+  color: var(--overlay0);
+}
